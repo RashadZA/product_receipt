@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "701740018443",
+    "project_id": "product-receipt-bbb89",
+    "storage_bucket": "product-receipt-bbb89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701740018443:android:a297df457b73680a76500e",
+        "android_client_info": {
+          "package_name": "com.ananda.product_receipt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701740018443-rvd157h3qn2haoibf4gbavdb9oacltuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBZEP664ng2kATcgkPzQyzEQPADmZ1DHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701740018443-rvd157h3qn2haoibf4gbavdb9oacltuk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
