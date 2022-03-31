@@ -37,6 +37,7 @@ class _CustomerDetailsScreenState extends State<CustomerDetailsScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
+      title: const Text('Customer Details'),
       flexibleSpace: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(

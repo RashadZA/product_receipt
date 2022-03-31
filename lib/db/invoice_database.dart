@@ -1,5 +1,4 @@
 import 'package:path/path.dart';
-import 'package:product_receipt/model/customer.dart';
 import 'package:product_receipt/model/invoice.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -29,30 +28,35 @@ class InvoicesDatabase {
     const textType = 'TEXT NOT NULL';
 
     await db.execute('''
-    CREATE TABLE $tableCustomers (
-    ${CustomerFields.id} $idType,
-    ${CustomerFields.name} $textType,
-    ${CustomerFields.number} $textType,
-    ${CustomerFields.email} $textType
+    CREATE TABLE $tableInvoices (
+    ${InvoiceFields.id} $idType,
+    ${InvoiceFields.time} $textType,
+    ${InvoiceFields.customerName} $textType,
+    ${InvoiceFields.itemName} $textType,
+    ${InvoiceFields.itemRate} $textType,
+    ${InvoiceFields.itemQTY} $textType,
+    ${InvoiceFields.totalItem} $textType,
+    ${InvoiceFields.totalQTY} $textType,
+    ${InvoiceFields.totalRate} $textType
     )
     ''');
   }
 
-  Future<Invoice> create(Invoice customer) async {
+  Future<Invoice> create(Invoice invoice) async {
     final db = await instance.database;
 
 
-    final id = await db.insert(tableInvoices, customer.toJson());
-    return customer.copy(id: id);
+    final id = await db.insert(tableInvoices, invoice.toJson());
+    return invoice.copy(id: id);
   }
 
-  Future<Invoice> readCustomer(int id) async {
+  Future<Invoice> readInvoice(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
       tableInvoices,
-      columns: CustomerFields.values,
-      where: '${CustomerFields.id} = ?',
+      columns: InvoiceFields.values,
+      where: '${InvoiceFields.id} = ?',
       whereArgs: [id],
     );
 
@@ -66,21 +70,21 @@ class InvoicesDatabase {
   }
 
 
-  Future<List<Invoice>> readAllCustomer() async{
+  Future<List<Invoice>> readAllInvoice() async{
     final db = await instance.database;
 
     // final orderBy = '${CustomerFields.name} ASC';
-    final result = await db.query(tableCustomers);
+    final result = await db.query(tableInvoices);
     return result.map((json) => Invoice.fromJson(json)).toList();
   }
-  Future<int> update(Invoice customer) async {
+  Future<int> update(Invoice invoice) async {
     final db = await instance.database;
 
     return db.update(
-      tableCustomers,
-      customer.toJson(),
-      where: '${CustomerFields.id} = ?',
-      whereArgs: [customer.id],
+      tableInvoices,
+      invoice.toJson(),
+      where: '${InvoiceFields.id} = ?',
+      whereArgs: [invoice.id]
     );
   }
 
@@ -88,8 +92,8 @@ class InvoicesDatabase {
     final db = await instance.database;
 
     return await db.delete(
-      tableCustomers,
-      where: '${CustomerFields.id} = ?',
+      tableInvoices,
+      where: '${InvoiceFields.id} = ?',
       whereArgs: [id],
     );
   }

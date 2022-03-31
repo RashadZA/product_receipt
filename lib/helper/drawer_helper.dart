@@ -3,6 +3,7 @@ import 'package:product_receipt/screen/customer/customer_screen.dart';
 import 'package:product_receipt/screen/invoice/invoice_screen.dart';
 import 'package:product_receipt/screen/item/item_screen.dart';
 import 'package:product_receipt/screen/login_screen.dart';
+import 'package:product_receipt/screen/profile_screen.dart';
 
 class CustomDrawer {
   static Drawer customDrawer(context) {
@@ -49,7 +50,7 @@ class CustomDrawer {
               ),
             ),
 
-            //Profile Option
+            //Customer Option
             ListTile(
               leading: Icon(
                 Icons.person,
@@ -67,7 +68,7 @@ class CustomDrawer {
               },
             ),
 
-            //Add Item Option
+            //Item Option
             ListTile(
               leading: Icon(Icons.post_add,
                   size: _drawerIconSize,
@@ -83,7 +84,7 @@ class CustomDrawer {
               },
             ),
 
-            //My Post Option
+            //Invoice Option
             ListTile(
               leading: Icon(Icons.production_quantity_limits,
                   size: _drawerIconSize,
@@ -99,6 +100,23 @@ class CustomDrawer {
               },
             ),
 
+            //Profile Option
+            ListTile(
+              leading: Icon(
+                Icons.person,
+                size: _drawerIconSize,
+                color: Colors.blueGrey,
+              ),
+              title: const Text(
+                'Profile',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.blueGrey),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, ProfileScreen.id);
+              },
+            ),
 
             //logout option
             ListTile(

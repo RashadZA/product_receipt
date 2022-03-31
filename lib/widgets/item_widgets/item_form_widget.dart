@@ -53,7 +53,7 @@ class ItemFormWidget extends StatelessWidget {
 
 
   Widget buildCOde() => TextFormField(
-    maxLines: 4,
+    maxLines: 1,
     initialValue: code,
     style: const TextStyle(
       color: Colors.greenAccent,

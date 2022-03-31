@@ -37,6 +37,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
+      title: const Text('Item Details'),
       flexibleSpace: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(

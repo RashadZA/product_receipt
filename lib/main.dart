@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:product_receipt/screen/customer/add_customer_screen.dart';
 import 'package:product_receipt/screen/customer/customer_screen.dart';
+import 'package:product_receipt/screen/home_screen.dart';
 import 'package:product_receipt/screen/invoice/add_invoice_screen.dart';
 import 'package:product_receipt/screen/invoice/invoice_screen.dart';
 import 'package:product_receipt/screen/item/add_Item_screen.dart';
@@ -49,6 +50,7 @@ class MyApp extends StatelessWidget {
         ItemScreen.id: (context) => ItemScreen(),
         AddInvoiceScreen.id: (context) => AddInvoiceScreen(),
         InvoiceScreen.id: (context) => InvoiceScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
       },
       home: LoginScreen(),
     );

@@ -24,16 +24,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
     getUserInfo();
   }
 
-  void getUserInfo()  {
-
-      FirebaseFirestore.instance
-          .collection("users")
-          .doc(user!.uid)
-          .get()
-          .then((value) {
-        loggedInUser = UserModel.fromMap(value.data());
-      });
-    print(loggedInUser.firstName);
+  void getUserInfo() async {
+    await FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
   }
 
   @override
@@ -41,56 +40,58 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: CustomAppBar.customAppBar(context, 'Profile'),
       drawer: CustomDrawer.customDrawer(context),
-      body: Container(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.person,
-                  color: Colors.grey.shade300,
-                ),
-                SizedBox(width: 10),
-                Text('${loggedInUser.firstName}' ' ${loggedInUser.secondName}'),
-              ],
-            ),
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.phone_android,
-                  color: Colors.grey.shade300,
-                ),
-                SizedBox(width: 10),
-                Text('${loggedInUser.mobileNumber}'),
-              ],
-            ),
-            const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.email,
-                  color: Colors.grey.shade300,
-                ),
-                SizedBox(width: 10),
-                Text('${loggedInUser.email}'),
-              ],
-            ),
-            const SizedBox(height: 30),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Icon(Icons.person,
-            //       color: Colors.grey.shade300,),
-            //     SizedBox(width: 10),
-            //     Text('Name')
-            //   ],
-            // ),
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.person,
+                color: Colors.grey.shade300,
+              ),
+              const SizedBox(width: 10),
+              Text(
+                '${loggedInUser.firstName}' ' ${loggedInUser.secondName}',
+                style: const TextStyle(
+                    fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          const SizedBox(height: 30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.phone_android,
+                color: Colors.grey.shade300,
+              ),
+              const SizedBox(width: 10),
+              Text(
+                '${loggedInUser.mobileNumber}',
+                style: const TextStyle(
+                    fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          const SizedBox(height: 30),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.email,
+                color: Colors.grey.shade300,
+              ),
+              const SizedBox(width: 10),
+              Text(
+                '${loggedInUser.email}',
+                style: const TextStyle(
+                    fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+
+        ],
       ),
     );
   }

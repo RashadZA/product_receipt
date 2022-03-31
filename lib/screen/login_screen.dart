@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:product_receipt/helper/custom_theme.dart';
-import 'package:product_receipt/screen/profile_screen.dart';
+import 'package:product_receipt/screen/home_screen.dart';
 import 'package:product_receipt/screen/registration_screen.dart';
 import 'package:product_receipt/widgets/header_widget.dart';
 
@@ -159,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
             .signInWithEmailAndPassword(email: email, password: password)
             .then((uid) => {
           Fluttertoast.showToast(msg: "Login Successful"),
-          Navigator.pushNamed(context, ProfileScreen.id),
+          Navigator.pushNamed(context, HomeScreen.id),
         });
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
