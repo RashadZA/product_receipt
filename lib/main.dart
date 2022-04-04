@@ -4,9 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:product_receipt/screen/customer/add_customer_screen.dart';
 import 'package:product_receipt/screen/customer/customer_screen.dart';
+import 'package:product_receipt/screen/expense/expense_screen.dart';
 import 'package:product_receipt/screen/home_screen.dart';
 import 'package:product_receipt/screen/invoice/add_invoice_screen.dart';
 import 'package:product_receipt/screen/invoice/invoice_screen.dart';
+import 'package:product_receipt/screen/invoice/sample_invoice_screen.dart';
 import 'package:product_receipt/screen/item/add_Item_screen.dart';
 import 'package:product_receipt/screen/item/item_screen.dart';
 import 'package:product_receipt/screen/login_screen.dart';
@@ -25,10 +27,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-  Color _primaryColor = HexColor('#266C09');
-  Color _accentColor = HexColor('#C3EAB3');
-  Color _splashColor = HexColor('#CBD4C7');
-  Color _focusColor = HexColor('#46643A');
+  final Color _primaryColor = HexColor('#266C09');
+  final Color _accentColor = HexColor('#C3EAB3');
+  final Color _splashColor = HexColor('#CBD4C7');
+  final Color _focusColor = HexColor('#46643A');
 
   // This widget is the root of your application.
   @override
@@ -42,17 +44,20 @@ class MyApp extends StatelessWidget {
           focusColor: _focusColor
       ),
       routes: {
-        LoginScreen.id: (context) => LoginScreen(),
-        ProfileScreen.id: (context) => ProfileScreen(),
-        AddCustomerScreen.id: (context) => AddCustomerScreen(),
-        CustomerScreen.id: (context) => CustomerScreen(),
-        AddItemScreen.id: (context) => AddItemScreen(),
-        ItemScreen.id: (context) => ItemScreen(),
-        AddInvoiceScreen.id: (context) => AddInvoiceScreen(),
-        InvoiceScreen.id: (context) => InvoiceScreen(),
-        HomeScreen.id: (context) => HomeScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        ProfileScreen.id: (context) => const ProfileScreen(),
+        AddCustomerScreen.id: (context) => const AddCustomerScreen(),
+        CustomerScreen.id: (context) => const CustomerScreen(),
+        AddItemScreen.id: (context) => const AddItemScreen(),
+        ItemScreen.id: (context) => const ItemScreen(),
+        AddInvoiceScreen.id: (context) => const AddInvoiceScreen(),
+        InvoiceScreen.id: (context) => const InvoiceScreen(),
+        ExpenseScreen.id: (context) =>  const ExpenseScreen(),
+        ExpenseScreen.id: (context) =>  const ExpenseScreen(),
+        HomeScreen.id: (context) => const HomeScreen(),
+        SampleInvoiceScreen.id: (context) => const SampleInvoiceScreen()
       },
-      home: LoginScreen(),
+      home: const HomeScreen(),
     );
   }
 

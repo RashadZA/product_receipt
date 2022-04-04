@@ -78,7 +78,7 @@ class _ItemScreenState extends State<ItemScreen> {
       return GestureDetector(
         onTap: () async {
           await Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ItemDetailsScreen(customerId: item.id!),
+            builder: (context) => ItemDetailsScreen(itemId: item.id!),
           ));
 
           refreshItems();

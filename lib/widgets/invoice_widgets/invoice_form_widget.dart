@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:product_receipt/helper/custom_theme.dart';
 
@@ -39,7 +40,8 @@ class InvoiceFormWidget extends StatelessWidget {
     child: Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           // Column(
           //   children: [
@@ -119,6 +121,7 @@ class InvoiceFormWidget extends StatelessWidget {
           //     ),
           //   ],
           // ),
+
           buildCustomerName(),
           const SizedBox(height: 8),
           buildItemName(),

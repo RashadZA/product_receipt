@@ -4,11 +4,11 @@ import 'package:product_receipt/model/item.dart';
 import 'package:product_receipt/screen/item/add_Item_screen.dart';
 import 'package:product_receipt/screen/item/item_screen.dart';
 class ItemDetailsScreen extends StatefulWidget {
-  final int customerId;
+  final int itemId;
 
   const ItemDetailsScreen({
     Key? key,
-    required this.customerId,
+    required this.itemId,
   }) : super(key: key);
 
   @override
@@ -29,7 +29,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
   Future refreshItem() async {
     setState(() => isLoading = true);
 
-    item = await ItemsDatabase.instance.readItem(widget.customerId);
+    item = await ItemsDatabase.instance.readItem(widget.itemId);
 
     setState(() => isLoading = false);
   }
@@ -96,7 +96,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
   Widget deleteButton() => IconButton(
     icon: const Icon(Icons.delete),
     onPressed: () async {
-      await ItemsDatabase.instance.delete(widget.customerId);
+      await ItemsDatabase.instance.delete(widget.itemId);
 
       Navigator.pushNamed(context, ItemScreen.id);
     },

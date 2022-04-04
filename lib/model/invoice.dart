@@ -14,15 +14,15 @@ class InvoiceFields {
     totalQTY,
     totalRate
   ];
-  static final String id = '_id';
-  static final String time = 'time';
-  static final String customerName = 'customerName';
-  static final String itemName = 'itemNamer';
-  static final String itemRate = 'itemRate';
-  static final String itemQTY = 'itemQTY';
-  static final String totalItem = 'totalItem';
-  static final String totalQTY = 'totalQTY';
-  static final String totalRate = 'totalRate';
+  static const String id = '_id';
+  static const String time = 'time';
+  static const String customerName = 'customerName';
+  static const String itemName = 'itemNamer';
+  static const String itemRate = 'itemRate';
+  static const String itemQTY = 'itemQTY';
+  static const String totalItem = 'totalItem';
+  static const String totalQTY = 'totalQTY';
+  static const String totalRate = 'totalRate';
 }
 
 class Invoice {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:product_receipt/screen/customer/customer_screen.dart';
+import 'package:product_receipt/screen/expense/expense_screen.dart';
 import 'package:product_receipt/screen/invoice/invoice_screen.dart';
 import 'package:product_receipt/screen/item/item_screen.dart';
 import 'package:product_receipt/screen/login_screen.dart';
@@ -97,6 +98,24 @@ class CustomDrawer {
               ),
               onTap: () {
                 Navigator.pushNamed(context, InvoiceScreen.id);
+              },
+            ),
+
+            //Expense Option
+            ListTile(
+              leading: Icon(
+                Icons.production_quantity_limits_outlined,
+                size: _drawerIconSize,
+                color: Colors.blueGrey,
+              ),
+              title: const Text(
+                'Expenses',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Colors.blueGrey),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, ExpenseScreen.id);
               },
             ),
 
