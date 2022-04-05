@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.id: (context) => const HomeScreen(),
         SampleInvoiceScreen.id: (context) => const SampleInvoiceScreen()
       },
-      home: const HomeScreen(),
+      home: const LoginScreen(),
     );
   }
 

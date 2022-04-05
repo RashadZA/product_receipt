@@ -21,61 +21,68 @@ class CustomerFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
-    child: Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          buildTitle(),
-          const SizedBox(height: 8),
-          buildNumber(),
-          const SizedBox(height: 8),
-          buildDescription(),
-          const SizedBox(height: 16),
-        ],
-      ),
-    ),
-  );
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              buildTitle(),
+              const SizedBox(height: 8),
+              buildNumber(),
+              const SizedBox(height: 8),
+              buildDescription(),
+              const SizedBox(height: 16),
+            ],
+          ),
+        ),
+      );
 
   Widget buildTitle() => TextFormField(
-    maxLines: 1,
-    initialValue: name,
-    style: const TextStyle(
-      color: Colors.greenAccent,
-      fontSize: 24,
-    ),
-    decoration: CustomTheme()
-        .textInputDecoration("Name", "Enter Name"),
-    validator: (title) =>
-    title != null && title.isEmpty ? 'The Name cannot be empty' : null,
-    onChanged: onChangedName,
-  );
-
+        maxLines: 1,
+        initialValue: name,
+        style: const TextStyle(
+          color: Colors.greenAccent,
+          fontSize: 24,
+        ),
+        decoration: CustomTheme().textInputDecoration("Name", "Enter Name"),
+        validator: (title) =>
+            title != null && title.isEmpty ? 'The Name cannot be empty' : null,
+        onChanged: onChangedName,
+      );
 
   Widget buildNumber() => TextFormField(
-    keyboardType: TextInputType.phone,
-    maxLines: 1,
-    initialValue: number,
-    style: const TextStyle(
-      color: Colors.greenAccent,
-      fontSize: 24,
-    ),
-    decoration: CustomTheme()
-        .textInputDecoration("Number", "Enter Mobile Number"),
-    validator: (title) =>
-    title != null && title.isEmpty ? 'The Number cannot be empty' : null,
-    onChanged: onChangedNumber,
-  );
+        keyboardType: TextInputType.phone,
+        maxLines: 1,
+        initialValue: number,
+        style: const TextStyle(
+          color: Colors.greenAccent,
+          fontSize: 24,
+        ),
+        decoration:
+            CustomTheme().textInputDecoration("Number", "Enter Mobile Number"),
+        validator: (title) => title != null && title.isEmpty
+            ? 'The Number cannot be empty'
+            : null,
+        onChanged: onChangedNumber,
+      );
 
   Widget buildDescription() => TextFormField(
-    maxLines: 1,
-    initialValue: email,
-    style: const TextStyle(color: Colors.greenAccent, fontSize: 18),
-    decoration: CustomTheme()
-        .textInputDecoration("Email", "Enter  Email"),
-    validator: (title) => title != null && title.isEmpty
-        ? 'The Email cannot be empty'
-        : null,
-    onChanged: onChangedEmail,
-  );
+        maxLines: 1,
+        initialValue: email,
+        style: const TextStyle(color: Colors.greenAccent, fontSize: 18),
+        decoration: CustomTheme().textInputDecoration("Email", "Enter  Email"),
+        validator: (value) {
+          if (value!.isEmpty) {
+            return "Please Enter Your Email";
+          }
+          if (!RegExp(r"^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$").hasMatch(value)) {
+            return "Enter a valid email address";
+          }
+          return null;
+        },
+        // (title) => title != null && title.isEmpty
+        // ? 'The Email cannot be empty'
+        // : null,
+        onChanged: onChangedEmail,
+      );
 }

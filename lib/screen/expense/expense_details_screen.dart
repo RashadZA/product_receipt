@@ -32,40 +32,79 @@ class _ExpenseDetailsScreenState extends State<ExpenseDetailsScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
+      title: const Text('Expense Details'),
+      flexibleSpace: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[Theme.of(context).primaryColor, Theme.of(context).colorScheme.secondary,]
+            )
+        ),
+      ),
       actions: [editButton(), deleteButton()],
     ),
     body: isLoading
-        ? Center(child: CircularProgressIndicator())
-        : Padding(
-      padding: const EdgeInsets.all(12),
-      child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 8),
+        ? const Center(child: CircularProgressIndicator())
+        : Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            DateFormat.yMMMd().format(expense.expenseDate),
-            style: TextStyle(color: Colors.blueAccent),
-          ),
-          SizedBox(height: 8),
-          Text(
-            expense.expenseType,
-            style: TextStyle(
-              color: Colors.blueAccent,
+            'Expense Date: ${DateFormat.yMMMd().format(expense.expenseDate)}',
+            style: const TextStyle(
+              color: Colors.greenAccent,
               fontSize: 22,
-              fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(
-            expense.expenseAmount,
-            style: TextStyle(color: Colors.blueAccent, fontSize: 18),
+            'Expense Type : ${expense.expenseType}',
+            style: const TextStyle(
+              color: Colors.greenAccent,
+              fontSize: 22,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Expense Amount: ${expense.expenseAmount}',
+            style: const TextStyle(color: Colors.greenAccent, fontSize: 18),
           )
         ],
       ),
     ),
+
+    // Padding(
+    //   padding: const EdgeInsets.all(12),
+    //   child: ListView(
+    //     padding: EdgeInsets.symmetric(vertical: 8),
+    //     children: [
+    //       Text(
+    //         'Expe ${DateFormat.yMMMd().format(expense.expenseDate)}',
+    //         style: TextStyle(color: Colors.blueAccent),
+    //       ),
+    //       SizedBox(height: 8),
+    //       Text(
+    //         expense.expenseType,
+    //         style: TextStyle(
+    //           color: Colors.blueAccent,
+    //           fontSize: 22,
+    //           fontWeight: FontWeight.bold,
+    //         ),
+    //       ),
+    //       SizedBox(height: 8),
+    //       Text(
+    //         expense.expenseAmount,
+    //         style: TextStyle(color: Colors.blueAccent, fontSize: 18),
+    //       )
+    //     ],
+    //   ),
+    // ),
   );
 
   Widget editButton() => IconButton(
-      icon: Icon(Icons.edit_outlined),
+      icon: const Icon(Icons.edit_outlined),
       onPressed: () async {
         if (isLoading) return;
 
@@ -77,7 +116,7 @@ class _ExpenseDetailsScreenState extends State<ExpenseDetailsScreen> {
       });
 
   Widget deleteButton() => IconButton(
-    icon: Icon(Icons.delete),
+    icon: const Icon(Icons.delete),
     onPressed: () async {
       await ExpensesDatabase.instance.delete(widget.expenseId);
 

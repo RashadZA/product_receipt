@@ -97,16 +97,16 @@ class _AddCustomerScreenState extends State<AddCustomerScreen> {
       final isUpdating = widget.customer != null;
 
       if (isUpdating) {
-        await updateNote();
+        await updateCustomer();
       } else {
-        await addNote();
+        await addCUstomer();
       }
       Navigator.of(context).pop();
       // Navigator.pushNamed(context, CustomerScreen.id);
     }
   }
 
-  Future updateNote() async {
+  Future updateCustomer() async {
     final customer = widget.customer!.copy(
       name: name,
       number: number,
@@ -116,7 +116,7 @@ class _AddCustomerScreenState extends State<AddCustomerScreen> {
     await CustomersDatabase.instance.update(customer);
   }
 
-  Future addNote() async {
+  Future addCUstomer() async {
     final customer = Customer(
       name: name,
       number: number,
