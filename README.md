@@ -29,7 +29,6 @@ This project is a starting point for a Flutter application.
 <img src="screenshots/21.jpg">
 <img src="screenshots/22.jpg">
 <img src="screenshots/23.jpg">
-<img src="screenshots/24.jpg">
 
 A few resources to get you started if this is your first Flutter project:
 
