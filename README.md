@@ -1,11 +1,40 @@
-# product_receipt
+# Product_Receipt
 
-A new Flutter project.
+In this project, I have implemented the Local DB so that user can save Customer, Item, Invoice and Expense details.
 
-## Getting Started
+# Contents:
 
-This project is a starting point for a Flutter application.
-## ScreenShots
+* SQfLite
+* Navigation
+* Firebase
+* MVC
+* Path Provider
+* and many more...
+
+# How to Install and Run the Project:
+
+You can run this project:
+
+1. Direct on Android Studio Emulator by this [link](https://github.com/RashadZA/product_receipt)
+2. Physical Device. [Apk_link](https://drive.google.com/file/d/1-0oAlY-ahINbr5VLOkb_VICuDbSpT_ig/view?usp=sharing)
+
+# How to Use the Project:
+
+* Run this project on emulator or device.
+* First you will see a login page.
+* But first you need to crate an account for that you will find a crate button below the login button.
+* Then you can login in the app.
+* You will go to Home screen.
+* There you will find app drawer.
+* In drawer you will see a list Customer, Item, Invoice, Expense, Profile, Log Out.
+* After clicking any of them you will see list of that then you can add and delete from the list except Profile and Log Out.
+* Like if you click Customer You can see list of customers.
+* Then you can delete or add customer from list of customers.
+* If you click Profile you can see your details.
+* If you click Log Out you will go back to the Log in screen.
+
+
+## Sample Screenshots:
 <img src="screenshots/01.jpg">
 <img src="screenshots/02.jpg">
 <img src="screenshots/03.jpg">
@@ -30,14 +59,6 @@ This project is a starting point for a Flutter application.
 <img src="screenshots/22.jpg">
 <img src="screenshots/23.jpg">
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
 
 

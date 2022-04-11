@@ -53,7 +53,6 @@ class MyApp extends StatelessWidget {
         AddInvoiceScreen.id: (context) => const AddInvoiceScreen(),
         InvoiceScreen.id: (context) => const InvoiceScreen(),
         ExpenseScreen.id: (context) =>  const ExpenseScreen(),
-        ExpenseScreen.id: (context) =>  const ExpenseScreen(),
         HomeScreen.id: (context) => const HomeScreen(),
         SampleInvoiceScreen.id: (context) => const SampleInvoiceScreen()
       },

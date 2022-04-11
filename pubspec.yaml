@@ -44,7 +44,7 @@ dependencies:
   #formate DataTime
   intl: ^0.17.0
   path_provider: ^2.0.9
-
+  provider: ^6.0.2
   font_awesome_flutter: ^10.0.0
   cloud_firestore: ^3.1.10
   firebase_auth: ^3.3.11
